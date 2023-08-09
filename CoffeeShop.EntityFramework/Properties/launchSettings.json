@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CoffeeShop.EntityFramework": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\TetianaZelepukina\\Documents\\Projects\\CoffeeShop.EntityFramework\\CoffeeShop.EntityFramework\\"
+    }
+  }
+}

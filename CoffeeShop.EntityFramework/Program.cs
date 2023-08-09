@@ -19,19 +19,19 @@ while (isAppRunning)
     switch (option)
     {
         case MenuOptions.AddProduct:
-            ProductController.AddProduct();
+            ProductService.InsertProduct();
             break;
         case MenuOptions.DeleteProduct:
-            ProductController.DeleteProduct();
+            ProductService.DeleteProduct();
             break;
         case MenuOptions.UpdateProduct:
-            ProductController.UpdateProduct();
+            ProductService.UpdateProduct();
             break;
         case MenuOptions.ViewProduct:
-            ProductController.GetProductById();
+            ProductService.GetProduct();
             break;
         case MenuOptions.ViewAllProducts:
-            ProductController.GetProducts();
+            ProductService.GetAllProducts();
             break;
     }
 }
