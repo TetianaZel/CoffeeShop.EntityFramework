@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CoffeeShop.EntityFramework.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoffeeShop.EntityFramework;
 
