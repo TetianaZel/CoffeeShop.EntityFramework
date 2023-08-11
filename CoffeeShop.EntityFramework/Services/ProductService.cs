@@ -1,4 +1,5 @@
-﻿using CoffeeShop.EntityFramework.Models;
+﻿using CoffeeShop.EntityFramework.Controllers;
+using CoffeeShop.EntityFramework.Models;
 using Spectre.Console;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CoffeeShop.EntityFramework
+namespace CoffeeShop.EntityFramework.Services
 {
     internal class ProductService
     {
@@ -15,6 +16,7 @@ namespace CoffeeShop.EntityFramework
             var product = new Product();
             product.Name = AnsiConsole.Ask<string>("Product's name:");
             product.Price = AnsiConsole.Ask<decimal>("Product's price:");
+            product.CategoryId = CategoryService.GetCategoryOptionInput().Id;
             ProductController.AddProduct(product);
         }
 
@@ -59,7 +61,9 @@ namespace CoffeeShop.EntityFramework
             product.Price = AnsiConsole.Confirm("Update Price?")
                 ? AnsiConsole.Ask<decimal>("Products's new price:")
                 : product.Price;
-
+            product.Category.Name = AnsiConsole.Confirm("Update Category?")
+                ? AnsiConsole.Ask<string>("Products's new category:")
+                : product.Category.Name;
             ProductController.UpdateProduct(product);
         }
     }

@@ -1,15 +1,16 @@
 ﻿using CoffeeShop.EntityFramework.Models;
+using Microsoft.EntityFrameworkCore;
 using Spectre.Console;
 using System.Windows.Markup;
 
-namespace CoffeeShop.EntityFramework;
+namespace CoffeeShop.EntityFramework.Controllers;
 
 internal class ProductController
 {
     internal static void AddProduct(Product product)
     {
         using var db = new ProductContext();
-        db.Add(new Product { Name = product.Name, Price = product.Price });
+        db.Add(new Product { Name = product.Name, Price = product.Price, CategoryId = product.CategoryId});
         db.SaveChanges();
     }
 
@@ -23,7 +24,9 @@ internal class ProductController
     internal static Product GetProductById(int id)
     {
         using var db = new ProductContext();
-        var product = db.Products.SingleOrDefault(p => p.ProductId == id);
+        var product = db.Products
+            .Include(x => x.Category)
+            .SingleOrDefault(p => p.ProductId == id);
 
         return product;
     }
@@ -32,7 +35,9 @@ internal class ProductController
     {
         using var db = new ProductContext();
 
-        var products = db.Products.ToList();
+        var products = db.Products
+            .Include(x => x.Category)
+            .ToList();
 
         return products;
     }
