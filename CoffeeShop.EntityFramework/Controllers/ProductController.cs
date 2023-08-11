@@ -23,7 +23,7 @@ internal class ProductController
     internal static Product GetProductById(int id)
     {
         using var db = new ProductContext();
-        var product = db.Products.SingleOrDefault(p => p.Id == id);
+        var product = db.Products.SingleOrDefault(p => p.ProductId == id);
 
         return product;
     }
