@@ -8,12 +8,9 @@ using System.Threading.Tasks;
 
 namespace CoffeeShop.EntityFramework.Models
 {
-    [Index(nameof(Name), IsUnique = true)]
     internal class Category
     {
-        [Key]
-        public int Id { get; set; }
-        [Required]
+        public int CategoryId { get; set; }
         public string Name { get; set; }
         public List<Product> Products { get; set; }
     }

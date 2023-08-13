@@ -16,7 +16,7 @@ namespace CoffeeShop.EntityFramework.Services
             var product = new Product();
             product.Name = AnsiConsole.Ask<string>("Product's name:");
             product.Price = AnsiConsole.Ask<decimal>("Product's price:");
-            product.CategoryId = CategoryService.GetCategoryOptionInput().Id;
+            product.CategoryId = CategoryService.GetCategoryOptionInput().CategoryId;
             ProductController.AddProduct(product);
         }
 
@@ -31,7 +31,7 @@ namespace CoffeeShop.EntityFramework.Services
             var product = GetProductOptionInput();
             UserInterface.ShowProduct(product);
         }
-        static private Product GetProductOptionInput()
+        static internal Product GetProductOptionInput()
         {
             var products = ProductController.GetProducts();
             var productsArray = products.Select(x => x.Name).ToArray();

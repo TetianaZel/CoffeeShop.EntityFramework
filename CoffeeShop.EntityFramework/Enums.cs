@@ -12,6 +12,8 @@ namespace CoffeeShop.EntityFramework
         {
             ManageCategories,
             ManageProducts,
+            ManageOrders,
+            GenerateReport,
             Quit
         }
 
@@ -31,6 +33,14 @@ namespace CoffeeShop.EntityFramework
             UpdateProduct,
             ViewProduct,
             ViewAllProducts,
+            GoBack
+        }
+
+        internal enum OrderMenu
+        {
+            AddOrder,
+            GetOrders,
+            GetOrder,
             GoBack
         }
 
